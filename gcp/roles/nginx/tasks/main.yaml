@@ -1,0 +1,10 @@
+---
+- name: Installing nginx
+  apt:
+    name: nginx
+    state: latest
+
+- name: run nginx
+  systemd:
+    state: started
+    name: nginx

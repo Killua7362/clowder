@@ -1,0 +1,9 @@
+---
+- name: Install Nginx
+  hosts: all
+  remote_user: killua
+  become: yes
+
+  roles:
+  - nginx
+  - jenkins

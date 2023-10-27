@@ -1,0 +1,36 @@
+---
+- name: apt update
+  command: apt update
+
+- name: install java
+  command: apt install -y openjdk-17-jdk
+
+- name: install jenkins repo key
+  apt_key: 
+    url: https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key 
+    state: present
+
+- name: configure the jenkins repo
+  apt_repository: 
+    repo: 'deb https://pkg.jenkins.io/debian-stable binary/' 
+    state: present
+
+- name: update
+  command: apt update
+
+- name: install jenkins
+  apt: 
+    name: jenkins 
+    state: present
+
+- name: run jenkins
+  service: 
+    name: jenkins 
+    state: started
+
+- name: Get Jenkins password
+  shell: 'cat /var/lib/jenkins/secrets/initialAdminPassword'
+  register: result
+
+- debug:
+    var: result.stdout_lines
