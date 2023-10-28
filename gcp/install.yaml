@@ -7,3 +7,6 @@
   roles:
   - nginx
   - jenkins
+  - misc
+  - docker
+  - gcloud

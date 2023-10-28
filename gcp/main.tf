@@ -106,3 +106,10 @@ resource "google_compute_firewall" "ssh" {
 output "Web-server-URL" {
  value = join("",["http://",google_compute_instance.killua.network_interface.0.access_config.0.nat_ip,":5000"])
 }
+
+resource "google_artifact_registry_repository" "clowder-images" {
+  location      = "asia-south1"
+  repository_id = "clowder-images"
+  description   = "Contains all the applications"
+  format        = "DOCKER"
+}

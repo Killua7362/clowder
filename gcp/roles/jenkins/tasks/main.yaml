@@ -31,6 +31,7 @@
 - name: Get Jenkins password
   shell: 'cat /var/lib/jenkins/secrets/initialAdminPassword'
   register: result
+  ignore_errors: yes
 
 - debug:
     var: result.stdout_lines

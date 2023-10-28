@@ -23,3 +23,4 @@ pip3 install ansible
 ##
 #run this commands inside gcp
 # chmod o-w .
+#sudo usermod -a -G docker jenkins
