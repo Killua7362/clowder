@@ -5,3 +5,8 @@
     state: latest
     update_cache: yes
 
+- name: Install jq
+  apt:
+    name: jq
+    state: latest
+    update_cache: yes

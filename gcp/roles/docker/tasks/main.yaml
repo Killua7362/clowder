@@ -29,3 +29,9 @@
       - docker-registry
     state: latest
     update_cache: true
+
+- name: Add jenkins to docker
+  user:
+    name: jenkins
+    groups: docker
+    append: yes
